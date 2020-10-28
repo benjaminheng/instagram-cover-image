@@ -24,7 +24,7 @@ function drawText(ctx, canvasWidth) {
   var leftOffset = canvasWidth / 2;
 
   ctx.font = "96px 'Noto Serif'";
-  ctx.fillStyle = '#1a1a1a';
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
   ctx.textAlign = "center";
   var count = 0;
   for (const v of lines) {
