@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet"> 
+    <script type="text/javascript" src="canvas.js"></script>
+  </head>
+  <body onload="load();">
+    <div class="container-fluid my-4" style="max-width:800px">
+      <form onsubmit="return false">
+        <div class="form-group">
+          <textarea class="form-control" id="input-textarea" rows="3" placeholder="Text here" onchange="handleTextChange()" onkeyup="handleTextChange()"></textarea>
+        </div>
+      </form>
+
+      <hr/>
+      <div class="canvas-wrapper" style="text-align:center; max-width: 540px; margin: auto;">
+        <canvas id="canvas" width="1080" height="1080" style="width: 100%">
+        </canvas>
+      </div>
+    </div>
+  </body>
+</html>
