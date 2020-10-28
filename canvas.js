@@ -2,13 +2,32 @@ function load() {
   var canvas = document.getElementById('canvas');
   if (canvas.getContext) {
     var ctx = canvas.getContext('2d');
-    drawBackground(ctx);
+    drawBackground(ctx, canvas.width);
   }
 }
 
-function drawBackground(ctx) {
-  ctx.fillStyle = '#f5f5f5';
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+function drawBackground(ctx, canvasWidth) {
+  // ctx.fillStyle = '#f5f5f5';
+  // ctx.fillRect(0, 0, canvasWidth, canvasWidth);
+
+  var selectedBGColor = document.querySelector('input[name="bgColorRadio"]:checked');
+  var selectedPalette = document.querySelector('label[for="' + selectedBGColor.id + '"] > svg');
+
+  if (selectedPalette === null || selectedPalette.children.length === 0) {
+    return false;
+  } else if (selectedPalette.children.length === 1) {
+    ctx.fillStyle = selectedPalette.children[0].attributes.fill.value;
+  } else {
+    var gradient = ctx.createLinearGradient(0, 0, canvasWidth, canvasWidth);
+    var step = 1 / (selectedPalette.children.length - 1);
+    for (i = 0; i < selectedPalette.children.length; i++) {
+      var rect = selectedPalette.children[i];
+      gradient.addColorStop(i*step, rect.attributes.fill.value);
+    }
+    ctx.fillStyle = gradient;
+  }
+
+  ctx.fillRect(0, 0, canvasWidth, canvasWidth);
 }
 
 function drawText(ctx, canvasWidth) {
@@ -33,10 +52,10 @@ function drawText(ctx, canvasWidth) {
   }
 }
 
-function handleTextChange() {
+function handleSubmit() {
   var canvas = document.getElementById('canvas');
   var ctx = canvas.getContext('2d');
 
-  drawBackground(ctx);
+  drawBackground(ctx, canvas.width);
   drawText(ctx, canvas.width);
 }

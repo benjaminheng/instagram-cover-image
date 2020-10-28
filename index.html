@@ -1,20 +1,85 @@
 <html>
   <head>
     <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet"> 
     <script type="text/javascript" src="canvas.js"></script>
   </head>
   <body onload="load();">
-    <div class="container-fluid my-4" style="max-width:800px">
+    <div class="main container-fluid my-4">
       <form onsubmit="return false">
         <div class="form-group">
-          <textarea class="form-control" id="input-textarea" rows="3" placeholder="Text here" onchange="handleTextChange()" onkeyup="handleTextChange()"></textarea>
+          <textarea class="form-control" id="input-textarea" rows="3" placeholder="Text here" onchange="handleSubmit()" onkeyup="handleSubmit()"></textarea>
         </div>
+
+        <!-- background color -->
+        <div class="form-check form-check-inline mx-2">
+          <input class="form-check-input" type="radio" name="bgColorRadio" id="bgColor-grey" value="option1" onclick="handleSubmit()" checked="checked">
+          <label class="form-check-label" for="bgColor-grey">
+            <svg width="15" height="15">
+              <rect fill="#f5f5f5" width="15" height="15" x="0"></rect>
+            </svg>
+          </label>
+        </div>
+
+        <div class="form-check form-check-inline mx-2">
+          <input class="form-check-input" type="radio" name="bgColorRadio" id="bgColorRadio-greyGradient" value="option1" onclick="handleSubmit()">
+          <label class="form-check-label" for="bgColorRadio-greyGradient">
+            <svg width="30" height="15">
+              <rect fill="#f0f0f0" width="15" height="15" x="0"></rect>
+              <rect fill="#d3d3d3" width="15" height="15" x="15"></rect>
+            </svg>
+          </label>
+        </div>
+
+        <div class="form-check form-check-inline mx-2">
+          <input class="form-check-input" type="radio" name="bgColorRadio" id="bgColorRadio-blue" value="option1" onclick="handleSubmit()">
+          <label class="form-check-label" for="bgColorRadio-blue">
+            <svg width="45" height="15">
+              <rect fill="#deebf7" width="15" height="15" x="0"></rect>
+              <rect fill="#9ecae1" width="15" height="15" x="15"></rect>
+              <rect fill="#7cbfe0" width="15" height="15" x="30"></rect>
+            </svg>
+          </label>
+        </div>
+
+        <div class="form-check form-check-inline mx-2">
+          <input class="form-check-input" type="radio" name="bgColorRadio" id="bgColorRadio-green" value="option1" onclick="handleSubmit()">
+          <label class="form-check-label" for="bgColorRadio-green">
+            <svg width="45" height="15">
+              <rect fill="#e5f5e0" width="15" height="15" x="0"></rect>
+              <rect fill="#a1d99b" width="15" height="15" x="15"></rect>
+              <rect fill="#71c27d" width="15" height="15" x="30"></rect>
+            </svg>
+          </label>
+        </div>
+
+        <div class="form-check form-check-inline mx-2">
+          <input class="form-check-input" type="radio" name="bgColorRadio" id="bgColorRadio-purple" value="option1" onclick="handleSubmit()">
+          <label class="form-check-label" for="bgColorRadio-purple">
+            <svg width="45" height="15">
+              <rect fill="#efedf5" width="15" height="15" x="0"></rect>
+              <rect fill="#bcbddc" width="15" height="15" x="15"></rect>
+              <rect fill="#8f89c1" width="15" height="15" x="30"></rect>
+            </svg>
+          </label>
+        </div>
+
+        <div class="form-check form-check-inline mx-2">
+          <input class="form-check-input" type="radio" name="bgColorRadio" id="bgColorRadio-pink" value="option1" onclick="handleSubmit()">
+          <label class="form-check-label" for="bgColorRadio-pink">
+            <svg width="30" height="15">
+              <rect fill="#fde0dd" width="15" height="15" x="0"></rect>
+              <rect fill="#f7b2c2" width="15" height="15" x="15"></rect>
+            </svg>
+          </label>
+        </div>
+        <!-- end background color -->
       </form>
 
       <hr/>
-      <div class="canvas-wrapper" style="text-align:center; max-width: 540px; margin: auto;">
-        <canvas id="canvas" width="1080" height="1080" style="width: 100%;">
+      <div class="canvas-wrapper">
+        <canvas id="canvas" width="1080" height="1080">
         </canvas>
       </div>
     </div>
